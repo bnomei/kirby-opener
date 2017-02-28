@@ -1,0 +1,7 @@
+{
+  "name": "kirby-opener",
+  "description": "Kirby Opener is a Kirby CMS Panel Field button that allows you to use placeholders to create dynamic urls which are called with and without ajax response or start downloads.",
+  "version": "0.5.0",
+  "type": "kirby-plugin",
+  "license": "Commercial"
+}

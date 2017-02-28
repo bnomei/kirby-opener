@@ -1,0 +1,7 @@
+# opener example for opening another page in panel read from field of current page
+label: Example 3
+type: opener
+command: '/panel/pages/{page.related.diruri}/edit/open:yes'
+help: '/panel/pages/{page.related.diruri}/edit/open:yes'
+text: 'Edit page set in a field'
+width: 1/2

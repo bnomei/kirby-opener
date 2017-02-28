@@ -1,0 +1,7 @@
+# opener example for opening current panel user
+label: Example 1
+type: opener
+command: '/panel/users/{panel.user.current}/edit/open:yes'
+help:    '/panel/users/{panel.user.current}/edit/open:yes'
+text: 'Edit current User'
+width: 1/2

@@ -1,0 +1,10 @@
+# opener example for opening file as popup window
+type: opener
+label: Example 4
+command: '/openerexample-route/file'
+help:    '/openerexample-route/file'
+text: 'Open Kirby License'
+textprogress: 'Searching...'
+textsuccess: 'Opening File...'
+texterror: 'License not found.'
+width: 1/2

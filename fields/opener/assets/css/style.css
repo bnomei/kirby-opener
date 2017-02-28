@@ -1,0 +1,26 @@
+.field[data-field='opener'] .jquery-hide {
+  display: none; }
+
+.field[data-field='opener'] .opener-button a .fa {
+  display: none;
+  margin-right: 10px; }
+
+.field[data-field='opener'] .opener-button a.btn-positive .fa-check-circle {
+  display: inherit; }
+
+.field[data-field='opener'] .opener-button a.btn-negative .fa-exclamation-circle {
+  display: inherit; }
+
+.field[data-field='opener'] .opener-button a.needs-init .fa-info-circle {
+  display: inherit; }
+
+.field[data-field='opener'] .opener-button a.opener-download {
+  display: none; }
+  .field[data-field='opener'] .opener-button a.opener-download.show {
+    display: inherit; }
+
+.field[data-field='opener'].ajax .opener-button a .fa-spinner {
+  display: inherit; }
+
+.field[data-field='opener'].ajax .opener-wrapper {
+  cursor: wait; }

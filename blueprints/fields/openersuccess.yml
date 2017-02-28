@@ -1,0 +1,10 @@
+# opener example if json response code is excactly 200
+type: opener
+label: Example 6
+command: '/openerexample-route/success/{page.diruri.encoded}/{page.secret}'
+help:    '/openerexample-route/success/{page.diruri.encoded}/{page.secret}'
+text: 'Bake a cake'
+textprogress: 'baking...'
+textsuccess: 'YML :)'
+texterror: 'YML :('
+width: 1/2

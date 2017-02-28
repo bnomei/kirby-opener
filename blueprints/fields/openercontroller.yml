@@ -1,0 +1,10 @@
+# opener example for working with controller
+label: Example 8
+type: opener
+command: '/openerexample/{field.autoid}/{page.diruri.encoded}/{page.secret}/mycmd:dowork'
+help:    '/openerexample/{field.autoid}/{page.diruri.encoded}/{page.secret}/mycmd:dowork'
+text: 'Do Work'
+textprogress: 'working...'
+textsuccess: 'Done.'
+texterror: 'Failed.'
+width: 1/2

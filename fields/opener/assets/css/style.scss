@@ -1,0 +1,30 @@
+
+.field[data-field='opener'] {
+	.jquery-hide {
+		display: none;
+	}
+
+	.opener-button a {
+		.fa { 
+			display: none; 
+			margin-right: 10px; 
+		}
+		&.btn-positive .fa-check-circle { display: inherit; }
+		&.btn-negative .fa-exclamation-circle { display: inherit; }
+		&.needs-init .fa-info-circle { display: inherit; }
+
+		&.opener-download {
+			display: none;
+			&.show {
+				display: inherit;
+			}
+		}
+	}
+
+	&.ajax .opener-button a .fa-spinner {
+		display: inherit;
+	}
+	&.ajax .opener-wrapper {
+		cursor: wait;
+	}
+}

@@ -1,0 +1,43 @@
+title: Opener Plugin Example Page
+icon: life-ring
+options:
+  status: false
+  template: false
+  url: false
+fields:
+  title:
+    type: text
+    default: openerexample
+    readonly: true
+    icon: life-ring
+    help: >
+      <style>.opener-debug {border:1px solid #ccc;background-color:#ddd;padding:20px;margin-bottom:20px;} .opener-debug > pre, .opener-debug > ul > li {font-family: monospace;word-wrap:break-word;}</style>
+  docs:
+    type: opener
+    command: 'https://github.com/bnomei/kirby-opener/open:yes'
+    text: 'Plugin Github Docs'
+
+  examples-line:
+    type: line
+
+  example1: openeropenuser
+  example2: openeropenexternal
+  example3: openeropenpagefield
+  related:
+    type: page
+    default: '/home'
+    label: Related Field for Example 3
+    width: 1/2
+  example4: openerpopup
+  example5: openerdownload
+  example6: openersuccess
+  example7: openererror
+  example8: openercontroller
+
+  placeholders-line:
+    type: line
+  placeholders:
+    label: Predefined Placeholers
+    type: info
+    text: >
+      <div class="opener-debug"><ul> <li>page.url</li> <li>parent.url</li> <li>page.secret</li> <li>site.secret</li> <li>pages.secret</li> <li>page.autoid</li> <li>page.title</li> <li>page.diruri.encoded</li> <li>panel.user.current</li> <li>page.related.diruri <i>(for Example 3)</i></li> </ul><p>You can define custom placeholders in your <i>site/config/config.php</i>.</p></div>

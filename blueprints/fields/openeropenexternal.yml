@@ -1,0 +1,7 @@
+# opener example for opening an url
+label: Example 2
+type: opener
+command: 'https://www.google.com/?q={field.title}/open:yes'
+help:    'https://www.google.com/?q={field.title}/open:yes'
+text: 'Search for Title-Field in Google'
+width: 1/2

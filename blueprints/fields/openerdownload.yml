@@ -1,0 +1,10 @@
+# opener example for downloading
+type: opener
+label: Example 5
+command: '/openerexample-route/file/download:yes'
+help:    '/openerexample-route/file/download:yes'
+text: 'Download Kirby License'
+textprogress: 'Searching...'
+textsuccess: 'Starting Download...'
+texterror: 'License not found.'
+width: 1/2
