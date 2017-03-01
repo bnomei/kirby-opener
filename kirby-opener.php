@@ -169,7 +169,7 @@ if(c::get('plugin.opener.examples', true)) {
 /****************************************
   WIDGET
  ***************************************/
-if(str::length(c::get('plugin.opener.license', '')) != 32) {
+if(str::length(c::get('plugin.opener.license', '')) != 40) {
   // Hi there, play fair and buy a license. Thanks!
   $kirby->set('widget', 'opener', __DIR__ . '/widgets/opener');
 }
