@@ -10,6 +10,7 @@ Kirby Opener is a Kirby CMS Panel Field button that allows you to use placeholde
 
 - open any URL from within the panel
 - add custom data within the URL using *placeholders*
+- easily call [Routes](https://getkirby.com/docs/developer-guide/advanced/routing) or [Page Models Functions](https://getkirby.com/docs/developer-guide/advanced/models)
 - display custom JSON response status messages at the button label
 - trigger downloading of files
 - easily extendable *placeholders*
