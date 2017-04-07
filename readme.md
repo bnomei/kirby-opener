@@ -266,6 +266,10 @@ You can set these in your `site/config/config.php`.
 - default: 'open:yes'
 - command part to tell the plugin js script to trigger a new window/tab with command as url. There will be no ajax call.
 
+### plugins.opener.allow-pagemodels
+- default: false
+- if enabled you can use `$pageModel` in your placeholders to access functions defined in your [Kirby Page Models](https://getkirby.com/docs/developer-guide/advanced/models).
+
 ### plugins.opener.allow-eval
 - default: false
 - commands only allow you to chain `$page` or `$site` and their methods but without parameters. If you enabled `allow-eval` you can go crazy with your placeholders up to 100 chars and a single statement. But since `eval()` is dangerous this setting is disabled by default. Please be aware of the risks of you enable this setting. 

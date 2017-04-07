@@ -5,6 +5,7 @@
     $fileurl  = c::get('plugin.opener.json.fileurl', 'fileurl');
 	$delay    = c::get('plugin.opener.reset-delay', 5000); // ms
 	$popup    = c::get('plugin.opener.popup-window', false);
+	$pagemodels = c::get('plugin.opener.allow-pagemodels', false);
 
 	if(strlen(trim($field->value)) > 0): 
 		// locked
@@ -15,8 +16,20 @@
 
 	// vars for placeholders
 	// NOTE: page($page->id()); would be panel page
-	$page = $page; 
+	$page = $page;
+	$pageModel = $pagemodels ? null : $page;
 	$site = $page->site();
+	if($pagemodels) {
+		//https://forum.getkirby.com/t/page-model-doesnt-working-inside-file-hook/2994/4
+		$kirby = kirby();
+		if(count(Page::$models) == 0) {
+			$kirby->models();
+		}
+		$cname = str::lower($page->template().'Page');
+		if(a::get(Page::$models, $page->template()) == $cname) {
+			$pageModel = new $cname($page->parent(), $page->dirname());
+		}
+	}
 	$pages = $site->pages();
 
 	$settings = c::get('plugin.opener.placeholder', array());
@@ -66,9 +79,16 @@
 				for($c = 1; $c < count($chain); $c++) {
 					if(isset($obj)) {
 						$method = str_replace('()', '', $chain[$c]);
+						
 						if(is_callable([$obj, $method])) {
-							$obj = $obj->{$method}();
+							
+							if($obj == $pageModel && method_exists($obj,$method)) {
+								$obj = $obj->{$method}();
+							} else {
+								$obj = $obj->{$method}();
+							}
 						}
+						
 					}
 				}
 			}
