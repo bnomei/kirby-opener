@@ -125,11 +125,16 @@
 	if($open) {
 		$href = str_replace('/'.$openConfig, '', $href);
 	}
+	$copyConfig  = c::get('plugin.opener.trigger-copy', 'copy:yes');
+	$copy        = str::contains($href, $copyConfig);
+	if($copy) {
+		$href = str_replace('/'.$copyConfig, '', $href);
+	}
 ?>
 
 <div class="<?php echo $fieldname ?>-wrapper">
 	<div 
-		class="<?php echo $fieldname ?>-button <?php ecco($popup, 'popup ', '') ?><?php ecco($download, 'download ', '') ?><?php ecco($open, 'no-ajax ', '') ?>"
+		class="<?php echo $fieldname ?>-button <?php ecco($popup, 'popup ', '') ?><?php ecco($download, 'download ', '') ?><?php ecco($open, 'no-ajax ', '') ?><?php ecco($copy, 'copy-clipboard ', '') ?>"
 		data-delay="<?php echo $delay; ?>"
 		data-jsoncode="<?php echo $code; ?>" 
 		data-jsonmessage="<?php echo $message; ?>" 
@@ -150,6 +155,9 @@
 			data-textprogress="<?php echo $field->textprogress; ?>" 
 			data-textdefault="<?php echo $field->text; ?>"><?php echo $field->text; ?></span></a>
 		<?php if($download): ?><a id="<?php echo $field->name(); ?>-download" href="" download="" class="<?php echo $fieldname ?>-download" target="_blank">Download</a><?php endif; ?>
+		<?php if($copy):?>
+		<input class="copy jquery-hide" type="text" name="copy" id="copy" value="<?php echo $href ?>">
+		<?php endif; ?>
 	</div>
 </div>
 

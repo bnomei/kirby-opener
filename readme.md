@@ -13,6 +13,7 @@ Kirby Opener is a Kirby CMS Panel Field button that allows you to use placeholde
 - easily call [Routes](https://getkirby.com/docs/developer-guide/advanced/routing) or [Page Models Functions](https://getkirby.com/docs/developer-guide/advanced/models)
 - display custom JSON response status messages at the button label
 - trigger downloading of files
+- trigger clipboard copy of url
 - easily extendable *placeholders*
 - configural parsing of *json response*
 
@@ -266,6 +267,11 @@ You can set these in your `site/config/config.php`.
 ### plugin.opener.trigger-open
 - default: 'open:yes'
 - command part to tell the plugin js script to trigger a new window/tab with command as url. There will be no ajax call.
+
+### plugin.opener.trigger-copy
+- default: 'copy:yes'
+- command part to tell the plugin js script to trigger clipboard copy of the url. There will be no ajax call. If browser blocks it behaves like with `open:yes`.
+
 
 ### plugins.opener.allow-pagemodels
 - default: false

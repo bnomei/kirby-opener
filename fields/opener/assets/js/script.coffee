@@ -4,8 +4,9 @@ Opener = ($, $field) ->
   self = this
 
   this.$field          = $field
-  this.$opener        = $field.find('.opener-button')
+  this.$opener         = $field.find('.opener-button')
   this.$button         = $field.find('.opener-button a')
+  this.$copy           = $field.find('.opener-button .copy')
   this.$text           = $field.find('.opener-button a span')
   this.$download       = $field.find('.opener-button a.opener-download')
 
@@ -69,6 +70,50 @@ Opener = ($, $field) ->
   this.init = ->
     return
 
+    # http://stackoverflow.com/questions/22581345/click-button-copy-to-clipboard-using-jquery#22581382
+  this.copyToClipboard = (elem) ->
+    # create hidden text element, if it doesn't already exist
+    targetId = '_hiddenCopyText_'
+    isInput = elem.tagName == 'INPUT' or elem.tagName == 'TEXTAREA'
+    origSelectionStart = undefined
+    origSelectionEnd = undefined
+    if isInput
+      # can just use the original source element for the selection and copy
+      target = elem
+      origSelectionStart = elem.selectionStart
+      origSelectionEnd = elem.selectionEnd
+    else
+      # must use a temporary form element for the selection and copy
+      target = document.getElementById(targetId)
+      if !target
+        target = document.createElement('textarea')
+        target.style.position = 'absolute'
+        target.style.left = '-9999px'
+        target.style.top = '0'
+        target.id = targetId
+        document.body.appendChild target
+      target.textContent = elem.textContent
+    # select the content
+    currentFocus = document.activeElement
+    target.focus()
+    target.setSelectionRange 0, target.value.length
+    # copy the selection
+    succeed = undefined
+    try
+      succeed = document.execCommand('copy')
+    catch e
+      succeed = false
+    # restore original focus
+    if currentFocus and typeof currentFocus.focus == 'function'
+      currentFocus.focus()
+    if isInput
+      # restore prior selection
+      elem.setSelectionRange origSelectionStart, origSelectionEnd
+    else
+      # clear temporary content
+      target.textContent = ''
+    return succeed
+
   # register to click event
   # on click open url using ajax
   this.$field.find('a.opener').click (ev) ->
@@ -76,6 +121,14 @@ Opener = ($, $field) ->
 
     if self.$opener.hasClass 'no-ajax'
       window.open self.$button.attr('href')
+    else if self.$opener.hasClass 'copy-clipboard'
+      self.$copy.removeClass 'jquery-hide'
+      if self.copyToClipboard(self.$copy.get(0)) # jquery -> dom
+        self.hasSuccess()
+      else
+        self.hasError()
+        window.open self.$button.attr('href')
+      self.$copy.addClass 'jquery-hide'
     else
       fname = $(this).attr('name')
       $.fn.OpenerAjax self, $(this).attr('href') + '/panel:1'
