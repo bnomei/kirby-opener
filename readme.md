@@ -272,6 +272,7 @@ You can set these in your `site/config/config.php`.
 - default: 'copy:yes'
 - command part to tell the plugin js script to trigger clipboard copy of the url. There will be no ajax call. If browser blocks it behaves like with `open:yes`.
 
+![Example](https://github.com/bnomei/kirby-opener/blob/master/example-clipboard.gif)
 
 ### plugins.opener.allow-pagemodels
 - default: false
