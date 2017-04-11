@@ -120,21 +120,29 @@
 
 	$href        = url(str::template($field->command, $placeholder));
 	$download    = str::contains($href, c::get('plugin.opener.trigger-download', 'download:yes'));
+	
 	$openConfig  = c::get('plugin.opener.trigger-open', 'open:yes');
 	$open        = str::contains($href, $openConfig);
 	if($open) {
 		$href = str_replace('/'.$openConfig, '', $href);
 	}
+
 	$copyConfig  = c::get('plugin.opener.trigger-copy', 'copy:yes');
 	$copy        = str::contains($href, $copyConfig);
 	if($copy) {
 		$href = str_replace('/'.$copyConfig, '', $href);
 	}
+
+	$refreshConfig  = c::get('plugin.opener.trigger-refresh', 'refresh:yes');
+	$refresh        = str::contains($href, $refreshConfig);
+	if($refresh) {
+		$href = str_replace('/'.$refreshConfig, '', $href);
+	}
 ?>
 
 <div class="<?php echo $fieldname ?>-wrapper">
 	<div 
-		class="<?php echo $fieldname ?>-button <?php ecco($popup, 'popup ', '') ?><?php ecco($download, 'download ', '') ?><?php ecco($open, 'no-ajax ', '') ?><?php ecco($copy, 'copy-clipboard ', '') ?>"
+		class="<?php echo $fieldname ?>-button <?php ecco($popup, 'popup ', '') ?><?php ecco($download, 'download ', '') ?><?php ecco($open, 'no-ajax ', '') ?><?php ecco($copy, 'copy-clipboard ', '') ?><?php ecco($refresh, 'refresh ', '') ?>"
 		data-delay="<?php echo $delay; ?>"
 		data-jsoncode="<?php echo $code; ?>" 
 		data-jsonmessage="<?php echo $message; ?>" 

@@ -14,6 +14,7 @@ Kirby Opener is a Kirby CMS Panel Field button that allows you to use placeholde
 - display custom JSON response status messages at the button label
 - trigger downloading of files
 - trigger clipboard copy of url
+- trigger refresh of page on success
 - easily extendable *placeholders*
 - configural parsing of *json response*
 
@@ -271,6 +272,10 @@ You can set these in your `site/config/config.php`.
 ### plugin.opener.trigger-copy
 - default: 'copy:yes'
 - command part to tell the plugin js script to trigger clipboard copy of the url. There will be no ajax call. If browser blocks it behaves like with `open:yes`.
+
+### plugin.opener.trigger-refresh
+- default: 'refresh:yes'
+- command part to tell the plugin js script to trigger a page refresh on success.
 
 ![Example](https://github.com/bnomei/kirby-opener/blob/master/example-clipboard.gif)
 

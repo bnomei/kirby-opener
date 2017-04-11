@@ -11,6 +11,7 @@ Opener = ($, $field) ->
   this.$download       = $field.find('.opener-button a.opener-download')
 
   this.useDownloadLink = this.$opener.hasClass 'download'
+  this.refresh         = this.$opener.hasClass 'refresh'
   this.delay           = parseInt(this.$opener.attr('data-delay')) #ms
   this.jsoncode        = String(this.$opener.attr('data-jsoncode'))
   this.jsonmessage     = String(this.$opener.attr('data-jsonmessage'))
@@ -30,8 +31,10 @@ Opener = ($, $field) ->
     return
 
   this.hasError = (error, msg) ->
-    if msg == undefined then msg = self.l.error
-    if msg == undefined or msg.length == 0 then msg = error
+    if msg == undefined or msg.trim().length == 0
+      msg = self.l.error
+    if msg == undefined or msgtrim().length == 0
+      msg = error
 
     self.$button.addClass('btn-negative')
       .children('span').text msg
@@ -44,7 +47,8 @@ Opener = ($, $field) ->
     return
 
   this.hasSuccess = (msg, durl) ->
-    if msg == undefined then msg = self.l.success
+    if msg == undefined or msg.trim().length == 0
+      msg = self.l.success
 
     self.$button.addClass('btn-positive')
     self.$button.children('span').text msg
@@ -63,6 +67,8 @@ Opener = ($, $field) ->
       self.$button.children('span').text self.l.default
       self.$download.attr 'href', ''
       self.$download.attr 'download', ''
+      if self.refresh
+        window.location.reload(true)
     , self.delay
 
     return
