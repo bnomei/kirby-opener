@@ -33,7 +33,7 @@ Opener = ($, $field) ->
   this.hasError = (error, msg) ->
     if msg == undefined or msg.trim().length == 0
       msg = self.l.error
-    if msg == undefined or msgtrim().length == 0
+    if msg == undefined or msg.trim().length == 0
       msg = error
 
     self.$button.addClass('btn-negative')
