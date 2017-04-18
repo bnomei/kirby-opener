@@ -104,12 +104,20 @@
 	if($content = $page->content()->toArray() ) {
 		$fieldValues = array();
 		foreach ($content as $key => $value) {
-			$yml = Yaml::decode($value);
-			$isArray = count($yml) > 0 && gettype($yml[0]) == 'array'; // aka structure
+			$isArray = false;
+			try {
+				$yml = Yaml::decode($value);
+				$isArray = count($yml) > 0 && gettype($yml[0]) == 'array'; // aka structure
+			}
+			catch(Exception $ex) {
+				// too many keys
+				$isArray = false;
+			}
 			if(!$isArray && str::length(trim($value)) > 0) {
 				$fieldValues['field.'.$key] = $value;
 				$fieldValues['field.'.$key.'.encoded'] = $key.':'.urlencode($value);
 			}
+
 		}
 		$placeholder = a::merge($placeholder, $fieldValues);
 	}
