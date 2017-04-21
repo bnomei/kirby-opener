@@ -12,7 +12,7 @@
 	<h2 style="color:#666;margin-top:40px;">JSON</h2>
 	<pre style="background-color:#eee;padding:20px;"><?php a::show($json) ?></pre>
 
-	<?= $oe = kirby()->site()->pages()->filterBy('template', 'openerexample')->first(); 
+	<?php $oe = kirby()->site()->pages()->filterBy('template', 'openerexample')->first(); 
 	var_dump($oe);
 	?>
 </body>
