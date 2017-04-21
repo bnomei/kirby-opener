@@ -1,0 +1,10 @@
+# opener example if json response code is not 200
+type: opener
+label: Example 11
+command: '/openerexample-route/error/{pages.secret}/refresh:yes'
+help:    '/openerexample-route/error/{pages.secret}/refresh:yes'
+text: 'Bake a cake and Refresh'
+textprogress: 'burning...'
+textsuccess: 'YML :)'
+texterror: 'YML :('
+width: 1/2

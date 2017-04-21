@@ -35,6 +35,7 @@ fields:
   example8: openercontroller
   example9: openerclipboard
   example10: openerconfirmation
+  example11: openerrefresh
 
   placeholders-line:
     type: line
