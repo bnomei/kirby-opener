@@ -17,6 +17,7 @@ class OpenerField extends BaseField {
   public $textsuccess;
   public $texterror;
   public $command;
+  public $confirm;
 
   public function input() {
     

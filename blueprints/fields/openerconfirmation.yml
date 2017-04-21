@@ -1,0 +1,11 @@
+# opener example for opening file as popup window
+type: opener
+label: Example 10
+command: '/openerexample-route/success/{page.diruri.encoded}/{page.secret}'
+help:    '/openerexample-route/success/{page.diruri.encoded}/{page.secret}'
+text: 'Like #6 but with Confirmation'
+textprogress: 'baking...'
+textsuccess: 'YML :)'
+texterror: 'YML :('
+width: 1/2
+confirm: 'Hungry?'

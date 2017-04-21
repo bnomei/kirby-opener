@@ -1,0 +1,10 @@
+# opener example for opening file as popup window
+type: opener
+label: Example 9
+command: '{page.url}/copy:yes'
+help:    '{page.url}/copy:yes'
+text: 'Copy URL of Frontend Page to Clipboard'
+textprogress: 'Copy URL of Frontend Page to Clipboard'
+textsuccess: 'Copied'
+texterror: 'No Browser Support'
+width: 1/2

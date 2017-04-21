@@ -122,9 +122,11 @@
 		$placeholder = a::merge($placeholder, $fieldValues);
 	}
 
-	if(c::get('debug', false)) {
+	if(c::get('plugin.opener.debug', false)) {
 		echo '<style>.opener-debug {border:1px solid #ccc;background-color:#ddd;padding:20px;margin-bottom:20px;} .opener-debug pre{font-family: monospace;word-wrap:break-word;}</style><div class="opener-debug">'.a::show($placeholder, false).'</div>';
 	}
+
+	$confirm	= isset($field->confirm) ? boolval($field->confirm) : false;
 
 	$href        = url(str::template($field->command, $placeholder));
 	$download    = str::contains($href, c::get('plugin.opener.trigger-download', 'download:yes'));
@@ -150,7 +152,7 @@
 
 <div class="<?php echo $fieldname ?>-wrapper">
 	<div 
-		class="<?php echo $fieldname ?>-button <?php ecco($popup, 'popup ', '') ?><?php ecco($download, 'download ', '') ?><?php ecco($open, 'no-ajax ', '') ?><?php ecco($copy, 'copy-clipboard ', '') ?><?php ecco($refresh, 'refresh ', '') ?>"
+		class="<?php echo $fieldname ?>-button <?php ecco($popup, 'popup ', '') ?><?php ecco($download, 'download ', '') ?><?php ecco($open, 'no-ajax ', '') ?><?php ecco($copy, 'copy-clipboard ', '') ?><?php ecco($refresh, 'refresh ', '') ?><?php ecco($confirm,'confirm ','') ?>"
 		data-delay="<?php echo $delay; ?>"
 		data-jsoncode="<?php echo $code; ?>" 
 		data-jsonmessage="<?php echo $message; ?>" 
@@ -169,6 +171,7 @@
 			data-textsuccess="<?php echo $field->textsuccess; ?>" 
 			data-textopening="<?php echo $field->textopening; ?>" 
 			data-textprogress="<?php echo $field->textprogress; ?>" 
+			data-textconfirm="<?php echo $field->confirm; ?>" 
 			data-textdefault="<?php echo $field->text; ?>"><?php echo $field->text; ?></span></a>
 		<?php if($download): ?><a id="<?php echo $field->name(); ?>-download" href="" download="" class="<?php echo $fieldname ?>-download" target="_blank">Download</a><?php endif; ?>
 		<?php if($copy):?>

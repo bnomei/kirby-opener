@@ -15,6 +15,7 @@ Kirby Opener is a Kirby CMS Panel Field button that allows you to use placeholde
 - trigger downloading of files
 - trigger clipboard copy of url
 - trigger refresh of page on success
+- trigger browser confirmation dialog
 - easily extendable *placeholders*
 - configural parsing of *json response*
 

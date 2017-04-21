@@ -33,6 +33,8 @@ fields:
   example6: openersuccess
   example7: openererror
   example8: openercontroller
+  example9: openerclipboard
+  example10: openerconfirmation
 
   placeholders-line:
     type: line

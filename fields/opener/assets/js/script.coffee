@@ -22,6 +22,7 @@ Opener = ($, $field) ->
     progress: this.$text.attr 'data-textprogress'
     success : this.$text.attr 'data-textsuccess'
     error   : this.$text.attr 'data-texterror'
+    confirm : this.$text.attr 'data-textconfirm'
 
   this.parseResult = (result) ->
     if result[this.jsoncode] is 200
@@ -124,6 +125,12 @@ Opener = ($, $field) ->
   # on click open url using ajax
   this.$field.find('a.opener').click (ev) ->
     ev.preventDefault()
+
+    confirmed = true
+    if self.$opener.hasClass 'confirm'
+      confirmed = confirm(self.l.confirm)
+
+    if not confirmed then return
 
     if self.$opener.hasClass 'no-ajax'
       window.open self.$button.attr('href')
