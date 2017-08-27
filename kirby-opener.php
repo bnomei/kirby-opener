@@ -34,21 +34,6 @@ class KirbyOpener {
   METHODS
  ***************************************/
 
-$kirby->set('site::method', 'openerSecret', 
-  function($site) {
-    return sha1(KirbyOpener::getSalt().date('Ymd'));
-});
-
-$kirby->set('pages::method', 'openerSecret', 
-  function($pages) {
-    return sha1(KirbyOpener::getSalt().date('Ymd'));
-});
-
-$kirby->set('pages::method', 'openerDiruriEncodedGetPage', 
-  function($pages, $diruriencoded) {
-    return page(str_replace('__DS__', DS, urldecode($diruriencoded)));
-});
-
 $kirby->set('page::method', 'openerSecret', 
   function($page) {
     return sha1(KirbyOpener::getSalt().$page->url().date('Ymd'));
@@ -62,6 +47,21 @@ $kirby->set('page::method', 'openerDiruriEncoded',
 $kirby->set('page::method', 'openerDiruriEncodedIsEqual', 
   function($page, $diruriencoded) {
     return $page->openerDiruriEncoded() == $diruriencoded;
+});
+
+$kirby->set('pages::method', 'openerSecret', 
+  function($pages) {
+    return sha1(KirbyOpener::getSalt().date('Ymd'));
+});
+
+$kirby->set('pages::method', 'openerDiruriEncodedGetPage', 
+  function($pages, $diruriencoded) {
+    return page(str_replace('__DS__', DS, urldecode($diruriencoded)));
+});
+
+$kirby->set('site::method', 'openerSecret', 
+  function($site) {
+    return sha1(KirbyOpener::getSalt().date('Ymd'));
 });
 
 /****************************************
