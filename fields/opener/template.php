@@ -81,9 +81,8 @@
 						$method = str_replace('()', '', $chain[$c]);
 						
 						if(is_callable([$obj, $method])) {
-							
-							if($obj == $pageModel && method_exists($obj,$method)) {
-								$obj = $obj->{$method}();
+							if(strcmp($obj->id(), $pageModel->id()) == 0 && method_exists($pageModel,$method)) {
+								$obj = $pageModel->{$method}();
 							} else {
 								$obj = $obj->{$method}();
 							}
